@@ -1,0 +1,372 @@
+---
+title: "CodeBook"
+output: github_document
+---
+
+## Variable Descriptions
+
+This dataset contains sensor signals collected from a smartphone’s **accelerometer** and **gyroscope** worn by 30 human subjects while performing daily activities like walking, sitting, or laying. The measurements are from two signal domains:
+
+- **TimeDomain.***: raw or filtered signals in the time domain
+- **FrequencyDomain.***: transformed signals in the frequency domain (via Fast Fourier Transform)
+
+Each signal can capture:
+- **Body acceleration** or **gravity acceleration**
+- **Linear acceleration** or **Jerk signals** (i.e., the rate of change of acceleration)
+- **Angular velocity** (from gyroscope)
+- **Magnitude** (i.e., the combined strength of a 3D signal vector)
+
+These measurements are computed along **three axes (X, Y, Z)**, or as a **magnitude value** (without direction), and are summarized using:
+- `.Mean`: average value
+- `.STD`: standard deviation (i.e., how much variation there is)
+
+Each variable in the dataset describes the **average** value of one of these measurements for a specific subject performing a specific activity.
+
+---
+
+# Data Dictionary (All 68 Variables)
+
+**1. subject**
+- Description: Subject ID (an integer between 1 and 30, identifying each participant).
+- Type: Numeric (averaged value)
+- Units: See below
+
+**2. activity**
+- Description: The type of physical activity performed (e.g., WALKING, SITTING, LAYING).
+- Type: Numeric (averaged value)
+- Units: See below
+
+**3. TimeDomain.Body.Accelerometer.Mean.XAxis**
+- Description: Average time-domain body accelerometer mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**4. TimeDomain.Body.Accelerometer.Mean.YAxis**
+- Description: Average time-domain body accelerometer mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**5. TimeDomain.Body.Accelerometer.Mean.ZAxis**
+- Description: Average time-domain body accelerometer mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**6. TimeDomain.Body.Accelerometer.STD.XAxis**
+- Description: Average time-domain body accelerometer standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**7. TimeDomain.Body.Accelerometer.STD.YAxis**
+- Description: Average time-domain body accelerometer standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**8. TimeDomain.Body.Accelerometer.STD.ZAxis**
+- Description: Average time-domain body accelerometer standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**9. TimeDomain.Gravity.Accelerometer.Mean.XAxis**
+- Description: Average time-domain gravity accelerometer mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**10. TimeDomain.Gravity.Accelerometer.Mean.YAxis**
+- Description: Average time-domain gravity accelerometer mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**11. TimeDomain.Gravity.Accelerometer.Mean.ZAxis**
+- Description: Average time-domain gravity accelerometer mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**12. TimeDomain.Gravity.Accelerometer.STD.XAxis**
+- Description: Average time-domain gravity accelerometer standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**13. TimeDomain.Gravity.Accelerometer.STD.YAxis**
+- Description: Average time-domain gravity accelerometer standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**14. TimeDomain.Gravity.Accelerometer.STD.ZAxis**
+- Description: Average time-domain gravity accelerometer standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**15. TimeDomain.Body.AccelerometerJerkSignal.Mean.XAxis**
+- Description: Average time-domain body mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**16. TimeDomain.Body.AccelerometerJerkSignal.Mean.YAxis**
+- Description: Average time-domain body mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**17. TimeDomain.Body.AccelerometerJerkSignal.Mean.ZAxis**
+- Description: Average time-domain body mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**18. TimeDomain.Body.AccelerometerJerkSignal.STD.XAxis**
+- Description: Average time-domain body standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**19. TimeDomain.Body.AccelerometerJerkSignal.STD.YAxis**
+- Description: Average time-domain body standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**20. TimeDomain.Body.AccelerometerJerkSignal.STD.ZAxis**
+- Description: Average time-domain body standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**21. TimeDomain.Body.Gyroscope.Mean.XAxis**
+- Description: Average time-domain body gyroscope mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**22. TimeDomain.Body.Gyroscope.Mean.YAxis**
+- Description: Average time-domain body gyroscope mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**23. TimeDomain.Body.Gyroscope.Mean.ZAxis**
+- Description: Average time-domain body gyroscope mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**24. TimeDomain.Body.Gyroscope.STD.XAxis**
+- Description: Average time-domain body gyroscope standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**25. TimeDomain.Body.Gyroscope.STD.YAxis**
+- Description: Average time-domain body gyroscope standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**26. TimeDomain.Body.Gyroscope.STD.ZAxis**
+- Description: Average time-domain body gyroscope standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**27. TimeDomain.Body.GyroscopeJerkSignal.Mean.XAxis**
+- Description: Average time-domain body mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**28. TimeDomain.Body.GyroscopeJerkSignal.Mean.YAxis**
+- Description: Average time-domain body mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**29. TimeDomain.Body.GyroscopeJerkSignal.Mean.ZAxis**
+- Description: Average time-domain body mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**30. TimeDomain.Body.GyroscopeJerkSignal.STD.XAxis**
+- Description: Average time-domain body standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**31. TimeDomain.Body.GyroscopeJerkSignal.STD.YAxis**
+- Description: Average time-domain body standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**32. TimeDomain.Body.GyroscopeJerkSignal.STD.ZAxis**
+- Description: Average time-domain body standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**33. TimeDomain.Body.AccelerometerMagnitude.Mean**
+- Description: Average time-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**34. TimeDomain.Body.AccelerometerMagnitude.STD**
+- Description: Average time-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**35. TimeDomain.Gravity.AccelerometerMagnitude.Mean**
+- Description: Average time-domain gravity mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**36. TimeDomain.Gravity.AccelerometerMagnitude.STD**
+- Description: Average time-domain gravity standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**37. TimeDomain.Body.AccelerometerJerkSignalMagnitude.Mean**
+- Description: Average time-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**38. TimeDomain.Body.AccelerometerJerkSignalMagnitude.STD**
+- Description: Average time-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**39. TimeDomain.Body.GyroscopeMagnitude.Mean**
+- Description: Average time-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**40. TimeDomain.Body.GyroscopeMagnitude.STD**
+- Description: Average time-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**41. TimeDomain.Body.GyroscopeJerkSignalMagnitude.Mean**
+- Description: Average time-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**42. TimeDomain.Body.GyroscopeJerkSignalMagnitude.STD**
+- Description: Average time-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**43. FrequencyDomain.Body.Accelerometer.Mean.XAxis**
+- Description: Average frequency-domain body accelerometer mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**44. FrequencyDomain.Body.Accelerometer.Mean.YAxis**
+- Description: Average frequency-domain body accelerometer mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**45. FrequencyDomain.Body.Accelerometer.Mean.ZAxis**
+- Description: Average frequency-domain body accelerometer mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**46. FrequencyDomain.Body.Accelerometer.STD.XAxis**
+- Description: Average frequency-domain body accelerometer standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**47. FrequencyDomain.Body.Accelerometer.STD.YAxis**
+- Description: Average frequency-domain body accelerometer standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**48. FrequencyDomain.Body.Accelerometer.STD.ZAxis**
+- Description: Average frequency-domain body accelerometer standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**49. FrequencyDomain.Body.AccelerometerJerkSignal.Mean.XAxis**
+- Description: Average frequency-domain body mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**50. FrequencyDomain.Body.AccelerometerJerkSignal.Mean.YAxis**
+- Description: Average frequency-domain body mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**51. FrequencyDomain.Body.AccelerometerJerkSignal.Mean.ZAxis**
+- Description: Average frequency-domain body mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**52. FrequencyDomain.Body.AccelerometerJerkSignal.STD.XAxis**
+- Description: Average frequency-domain body standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**53. FrequencyDomain.Body.AccelerometerJerkSignal.STD.YAxis**
+- Description: Average frequency-domain body standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**54. FrequencyDomain.Body.AccelerometerJerkSignal.STD.ZAxis**
+- Description: Average frequency-domain body standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**55. FrequencyDomain.Body.Gyroscope.Mean.XAxis**
+- Description: Average frequency-domain body gyroscope mean along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**56. FrequencyDomain.Body.Gyroscope.Mean.YAxis**
+- Description: Average frequency-domain body gyroscope mean along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**57. FrequencyDomain.Body.Gyroscope.Mean.ZAxis**
+- Description: Average frequency-domain body gyroscope mean along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**58. FrequencyDomain.Body.Gyroscope.STD.XAxis**
+- Description: Average frequency-domain body gyroscope standard deviation along the x axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**59. FrequencyDomain.Body.Gyroscope.STD.YAxis**
+- Description: Average frequency-domain body gyroscope standard deviation along the y axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**60. FrequencyDomain.Body.Gyroscope.STD.ZAxis**
+- Description: Average frequency-domain body gyroscope standard deviation along the z axis.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**61. FrequencyDomain.Body.AccelerometerMagnitude.Mean**
+- Description: Average frequency-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**62. FrequencyDomain.Body.AccelerometerMagnitude.STD**
+- Description: Average frequency-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**63. FrequencyDomain.Body.AccelerometerJerkSignalMagnitude.Mean**
+- Description: Average frequency-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**64. FrequencyDomain.Body.AccelerometerJerkSignalMagnitude.STD**
+- Description: Average frequency-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**65. FrequencyDomain.Body.GyroscopeMagnitude.Mean**
+- Description: Average frequency-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**66. FrequencyDomain.Body.GyroscopeMagnitude.STD**
+- Description: Average frequency-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**67. FrequencyDomain.Body.GyroscopeJerkSignalMagnitude.Mean**
+- Description: Average frequency-domain body mean.
+- Type: Numeric (averaged value)
+- Units: See below
+
+**68. FrequencyDomain.Body.GyroscopeJerkSignalMagnitude.STD**
+- Description: Average frequency-domain body standard deviation.
+- Type: Numeric (averaged value)
+- Units: See below
+
+## Units of Measurement
+- Accelerometer signals: Gravity units (`g`)
+- Gyroscope signals: Radians per second (`rad/s`)
+- All values are normalized and bounded between -1 and 1.

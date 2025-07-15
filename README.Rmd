@@ -1,0 +1,167 @@
+---
+title: "README"
+author: "Rafa Zhong"
+date: "2025-07-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+# What does this document intend to do?
+
+This document explains the steps taken to clean and summarize the Human Activity Recognition dataset.
+
+---
+title: "Codebook"
+author: "Rafa Zhong"
+date: "2025-07-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+# What is this README about?
+
+This codebook describes the variables and transformations performed in the "Getting and Cleaning Data" course project.
+
+---
+
+## Source Data
+
+The original data is the [UCI Human Activity Recognition Using Smartphones Dataset](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). It includes accelerometer and gyroscope measurements collected from Samsung Galaxy S smartphones worn by 30 subjects while performing 6 activities.
+
+The original dataset is separated into training and testing sets, with measurements for multiple features recorded in files under `train/` and `test/` directories.
+
+This codebook focuses on the intermediate merged data (`merged_data`) and the final tidy summary dataset (`tidy_dataset.txt`).
+
+---
+
+## Processing Steps for `merged_data`
+1. The following files were read and combined:
+   - `X_train.txt` and `X_test.txt`: raw measurement data
+   - `y_train.txt` and `y_test.txt`: activity codes
+   - `subject_train.txt` and `subject_test.txt`: subject IDs
+
+2. The training and test data were merged using `rbind()`.
+
+3. Variable names were assigned using `features.txt`.
+
+4. Columns were labeled:
+   - `subject`: identifies each participant
+   - `activity`: integer code representing the activity performed (to be later mapped to names)
+   - Remaining columns are measurements of signals from accelerometer and gyroscope sensors.
+
+5. The resulting dataset (`merged_data`) contains:
+   - 10299 rows
+   - 563 columns (561 measurements + subject + activity)
+
+6. Activities were recorded as integer codes (1 to 6), corresponding to:
+   - `WALKING`, `WALKING_UPSTAIRS`, `WALKING_DOWNSTAIRS`, `SITTING`, `STANDING`, `LAYING`
+
+---
+
+## Variable Name Transformation Logic
+
+To make the variable names more descriptive and human-readable, the original variable names from `features.txt` were transformed using the following rules:
+
+- Prefix `"t"` was replaced with `"TimeDomain."`, indicating the signal is from the time domain.
+- Prefix `"f"` was replaced with `"FrequencyDomain."`, indicating the signal is from the frequency domain.
+- `"Acc"` was replaced with `"Accelerometer"` (sensor type).
+- `"Gyro"` was replaced with `"Gyroscope"` (sensor type).
+- `"BodyBody"` was corrected to `"Body"`.
+- `"Body"` was changed to `"Body."` for consistency in hierarchy.
+- `"Gravity"` was changed to `"Gravity."`.
+- `"Jerk"` was replaced with `"JerkSignal"` (indicating signal derivative).
+- `"Mag"` was replaced with `"Magnitude"` (vector norm).
+- `-mean()` was replaced with `.Mean`
+- `-std()` was replaced with `.STD`
+- `-X`, `-Y`, `-Z` were replaced with `.XAxis`, `.YAxis`, `.ZAxis`
+- Remaining parentheses and hyphens were removed.
+
+The result is a set of variables that follow the hierarchical structure:
+
+> `TimeDomain.Body.Accelerometer.Mean.XAxis`  
+> = Mean value of body acceleration signal in the time domain, along the X axis.
+
+---
+
+## Variable Descriptions
+
+This dataset contains sensor signals collected from a smartphone’s **accelerometer** and **gyroscope** worn by 30 human subjects while performing daily activities like walking, sitting, or laying. The measurements are from two signal domains:
+
+- **TimeDomain.***: raw or filtered signals in the time domain
+- **FrequencyDomain.***: transformed signals in the frequency domain (via Fast Fourier Transform)
+
+Each signal can capture:
+- **Body acceleration** or **gravity acceleration**
+- **Linear acceleration** or **Jerk signals** (i.e., the rate of change of acceleration)
+- **Angular velocity** (from gyroscope)
+- **Magnitude** (i.e., the combined strength of a 3D signal vector)
+
+These measurements are computed along **three axes (X, Y, Z)**, or as a **magnitude value** (without direction), and are summarized using:
+- `.Mean`: average value
+- `.STD`: standard deviation (i.e., how much variation there is)
+
+Each variable in the dataset describes the **average** value of one of these measurements for a specific subject performing a specific activity.
+
+---
+
+## Units of Measurement
+
+- Accelerometer measurements are in units of gravity (g).
+- Gyroscope measurements are in radians per second (rad/s).
+- All variables are normalized and bounded within [-1, 1].
+
+---
+
+## Examples of Variable Names and Their Meanings
+
+| Variable Name | Description |
+|---------------|-------------|
+| `subject` | ID number of the subject (ranges from 1 to 30) |
+| `activity` | The activity performed (e.g., WALKING, SITTING) |
+| `TimeDomain.Body.Accelerometer.Mean.XAxis` | Average acceleration (in time domain) from the body sensor, along the X axis |
+| `TimeDomain.Gravity.Accelerometer.STD.ZAxis` | Standard deviation of gravity acceleration (in time domain) along the Z axis |
+| `TimeDomain.Body.Gyroscope.JerkSignal.Mean.YAxis` | Average rate of change of angular velocity (jerk) from body gyroscope, Y axis |
+| `FrequencyDomain.Body.Accelerometer.Magnitude.Mean` | Average of the magnitude (strength) of the frequency-domain body acceleration signal |
+| `FrequencyDomain.Body.Gyroscope.Magnitude.STD` | Standard deviation of the magnitude of body gyroscope in frequency domain |
+
+---
+
+## Structure of `tidy_dataset.txt`
+
+- 180 rows (30 subjects × 6 activities)
+- 68 columns:
+  - `subject`: integer from 1 to 30
+  - `activity`: one of six activities (e.g., `WALKING`, `LAYING`)
+  - 66 measurement variables, all of which represent the average of a feature for each subject/activity pair. 
+
+---
+
+## Variable Descriptions
+
+Each variable represents the **average** of a specific sensor measurement. For example:
+
+- `Average.TimeDomain.Body.Accelerometer.Mean.XAxis`: Mean of time-domain body acceleration signal along X axis (unit: g)
+- `Average.TimeDomain.Gravity.Accelerometer.STD.YAxis`: Standard deviation of gravity acceleration along Y axis
+- `Average.FrequencyDomain.Body.Gyroscope.Magnitude.Mean`: Mean of frequency-domain body gyroscope magnitude
+
+Variables follow the naming pattern:
+
+> `Average.<Domain>.<Source>.<Sensor>.<Statistic>.<Axis (if any)>`
+
+Where:
+- Domain: TimeDomain or FrequencyDomain
+- Source: Body or Gravity
+- Sensor: Accelerometer or Gyroscope (possibly with Jerk or Magnitude)
+- Statistic: Mean or STD
+- Axis: XAxis, YAxis, ZAxis (optional for Magnitude)
+
